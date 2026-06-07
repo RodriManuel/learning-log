@@ -1,0 +1,2 @@
+# Learning Log
+Desarrollaremos una aplicación web llamada Learning Log que permitirá a los usuarios llevar un registro de los temas que están aprendiendo. Los usuarios podrán crear temas de interés y añadir entradas donde documenten su progreso y conocimientos adquiridos. La página de inicio presentará el propósito de la aplicación e invitará a los usuarios a registrarse o iniciar sesión. Tras autenticarse, podrán crear nuevos temas, añadir entradas y consultar o modificar las ya existentes.
