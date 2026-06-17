@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Topic
+from .forms import TopicForm
 
 def index(request):
     """The home page for Learning Log."""
@@ -23,3 +24,20 @@ def topic(request, topic_id):
     context = {'topic':topic, 'entries':entries}
     
     return render(request, 'learning_logs/topic.html', context)
+
+def new_topic(request):
+    """Add a new topic."""
+
+    if request.method != 'POST':
+        # No data subbmitted; create a blank form.
+        form = TopicForm()
+    else:
+        # Post data submitted; process data.
+        form = TopicForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('learning_logs:topics')
+        
+    # Display a blank or invalid form.
+    context = {'form':form}
+    return render(request, 'learning_logs/new_topic.html', context) 
